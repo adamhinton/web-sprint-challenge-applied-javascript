@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -36,12 +38,21 @@ return divTopics
   // </div>
   //
 
-}
+};
 
-console.log(Tabs(['foo', 'bar', 'baz', 'jimmy']))
-console.log('afdsjiofji')
+console.log(Tabs(['javascript', 'bootstrap', 'technology', 'jquery', 'node.js']))
 
 const tabsAppender = (selector) => {
+axios.get('http://localhost:5000/api/topics')
+.then(res =>{
+  const newTabs = Tabs(res.data.topics);
+  selector = document.querySelector(`${selector}`)
+  return selector.appendChild(newTabs)
+})
+.catch(error =>{
+  console.log(error)
+})
+
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -52,3 +63,6 @@ const tabsAppender = (selector) => {
 }
 
 export { Tabs, tabsAppender }
+// console.log('ajfiofds')
+// console.log(Tabs(['foo', 'bar', 'idjfodsf']))
+
