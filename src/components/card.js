@@ -53,17 +53,17 @@ const cardAppender = (selector) => {
   axios.get('http://localhost:5000/api/articles')
   .then(res =>{
    const articleStuff = res.data.articles;
+  //  return console.log(articleStuff)
    const selected = document.querySelector(selector);
-   const done =articleStuff.forEach(function(item){
-     const blah = Card(item);
-     return selected.appendChild(blah)
+
+   articleStuff.forEach(function(item){
+   return selected.appendChild(Card(item));
    })
-return articleStuff
   })
   .catch(error =>{
     console.log(error)
   })
-  
+//  cardAppender('body') 
    // return selected.appendChild(lotsOfCards)
  // return console.log('lots of cards:', lotsOfCards)
 
