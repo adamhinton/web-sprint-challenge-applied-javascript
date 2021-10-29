@@ -47,18 +47,18 @@ return divCard
 
 
 
-console.log(Card('fjiadosj'))
+
 
 const cardAppender = (selector) => {
   axios.get('http://localhost:5000/api/articles')
   .then(res =>{
-   const articleStuff = res.data.articles.javascript;
+   const articleStuff = res.data.articles;
    const selected = document.querySelector(selector);
    const done =articleStuff.forEach(function(item){
      const blah = Card(item);
      return selected.appendChild(blah)
    })
-
+return articleStuff
   })
   .catch(error =>{
     console.log(error)
