@@ -40,7 +40,7 @@ return divTopics
 
 };
 
-console.log(Tabs(['javascript', 'bootstrap', 'technology', 'jquery', 'node.js']))
+
 
 const tabsAppender = (selector) => {
 axios.get('http://localhost:5000/api/topics')
